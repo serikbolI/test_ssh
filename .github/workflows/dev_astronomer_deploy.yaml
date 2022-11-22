@@ -28,7 +28,7 @@ jobs:
       run: |
         mkdir /home/runner/.ssh
         echo $GH_SSH_KEY > /home/runner/.ssh/id_rsa
-        echo $GH_KNOWN_HOSTS > /home/runner/.ssh/known_hosts
+        ssh-keyscan git@github.com >> /home/runner/.ssh/known_hosts
         ssh-keygen -R git@github.com
         chmod 600 /home/runner/.ssh/id_rsa
         git clone git@github.com:Palta-Data-Platform/paltabrain_dq_services.git
