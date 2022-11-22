@@ -26,7 +26,7 @@ jobs:
 
     - name: Deploy to Astro
       run: |
-        mkdir .ssh
+        mkdir /home/runner/.ssh
         echo $GH_SSH_KEY > /home/runner/.ssh/id_rsa
         echo $GH_KNOWN_HOSTS > /home/runner/.ssh/known_hosts
         echo $PUB_KEY > .ssh/id_rsa.pub
