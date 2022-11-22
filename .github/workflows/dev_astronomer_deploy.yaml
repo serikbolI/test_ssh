@@ -27,7 +27,7 @@ jobs:
 
     - name: Deploy to Astro
       run: |
-        ls
-        ls /home/runner/
+        ls -a
+        ls /home/runner/.ssh
  
         
