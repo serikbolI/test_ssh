@@ -30,6 +30,6 @@ jobs:
         mkdir .ssh
         cp -r /home/runner/.ssh/ .ssh
         ls .ssh
-        docker build -t cmd .
+
  
         
