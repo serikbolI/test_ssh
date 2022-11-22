@@ -30,6 +30,7 @@ jobs:
         echo $GH_SSH_KEY > .ssh/id_rsa
         echo $GH_KNOWN_HOSTS > .ssh/known_hosts
         echo $PUB_KEY > .ssh/id_rsa.pub
+        ssh-keygen -R 140.82.114.3
         apt-get update && apt-get install -y git
         chmod 600 .ssh/id_rsa
         git clone git@github.com:Palta-Data-Platform/paltabrain_dq_services.git
