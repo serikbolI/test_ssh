@@ -28,7 +28,7 @@ jobs:
       run: |
         mkdir .ssh
         echo $GH_SSH_KEY > .ssh/id_rsa
-        echo $PUB_KEY > .ssh/id_rsa.pub
+        echo $GH_KNOWN_HOSTS > .ssh/known_hosts.pub
         docker build -t cmd .
  
         
