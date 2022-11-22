@@ -8,11 +8,6 @@ on:
         required: true
         default: warning
 
-env:
-  ## Sets Deployment API key credentials as environment variables
-  GH_SSH_KEY: ${{ secrets.GH_SSH_KEY }}
-  GH_KNOWN_HOSTS: ${{ secrets.GH_KNOWN_HOSTS }}
-  PUB_KEY: ${{ secrets.PUB_KEY }}
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -28,8 +23,8 @@ jobs:
     - name: Deploy to Astro
       run: |
         mkdir .ssh
-        cp -r /home/runner/.ssh/ .ssh
-        ls .ssh
+        cp -r /home/runner/.ssh/* .ssh
+        ls .ssh -a
 
  
         
