@@ -27,7 +27,7 @@ jobs:
 
     - name: Deploy to Astro
       run: |
-        cmd
         ls
+        ls /home/runner/
  
         
