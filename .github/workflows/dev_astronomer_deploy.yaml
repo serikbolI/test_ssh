@@ -19,16 +19,15 @@ jobs:
     steps:
     - name: checkout repo
       uses: actions/checkout@v2.3.4
-    - name: Set up Python 3.8
-      uses: actions/setup-python@v4
+    - name: Install SSH Key
+      uses: shimataro/ssh-key-action@v2
       with:
-        python-version: '3.8'
+        key: ${{ secrets.GH_SSH_KEY }}
+        known_hosts: 'just-a-placeholder-so-we-dont-get-errors'
 
     - name: Deploy to Astro
       run: |
-        mkdir .ssh
-        echo $GH_SSH_KEY > .ssh/id_rsa
-        echo $GH_KNOWN_HOSTS > .ssh/known_hosts
-        docker build -t cmd .
+        cmd
+        ls
  
         
