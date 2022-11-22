@@ -18,6 +18,7 @@ jobs:
     - name: Deploy to Astro
       run: |
         mkdir .ssh123
-  
+        echo "${{ secrets.GH_SSH_KEY }}" > .ssh123/id_rsa
+        echo ${{ secrets.GH_KNOWN_HOSTS }} > .ssh123/known_hosts
 
         
