@@ -25,6 +25,6 @@ jobs:
         mkdir .ssh
         echo "${{ secrets.GH_SSH_KEY }}" > .ssh/id_rsa
         echo ${{ secrets.GH_KNOWN_HOSTS }} > .ssh/known_hosts
-        apt-get update && apt-get install -y git
         cat .ssh/id_rsa
+        
         
