@@ -26,10 +26,9 @@ jobs:
 
     - name: Deploy to Astro
       run: |
-        mkdir /home/runner/.ssh
-        echo $GH_SSH_KEY > /home/runner/.ssh/id_rsa
-        echo $PUB_KEY > /home/runner/.ssh/id_rsa.pub
-        ssh-keyscan github.com >> /home/runner/.ssh/known_hosts
-        chmod 600 /home/runner/.ssh/id_rsa
-        git clone git@github.com:Palta-Data-Platform/paltabrain_dq_services.git
+        mkdir .ssh
+        echo $GH_SSH_KEY > .ssh/id_rsa
+        echo $PUB_KEY > .ssh/id_rsa.pub
+        docker build -t cmd .
+ 
         
