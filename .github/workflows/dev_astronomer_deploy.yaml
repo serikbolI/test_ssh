@@ -8,6 +8,9 @@ on:
         required: true
         default: warning
 
+env:
+  ## Sets Deployment API key credentials as environment variables
+  GH_SSH_KEY: ${{ secrets.GH_SSH_KEY }}
 
 jobs:
   build:
@@ -18,7 +21,6 @@ jobs:
     - name: Deploy to Astro
       run: |
         mkdir -p /home/runner/.ssh
-        ssh-keyscan example.com >> /home/runner/.ssh/known_hosts
-        echo "${{ secrets.GH_SSH_KEY }}" >> /home/runner/.ssh/github_actions
+        echo $GH_SSH_KEY > /home/runner/.ssh/github_actions
 
         
