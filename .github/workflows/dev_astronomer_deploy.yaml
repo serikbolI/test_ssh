@@ -27,6 +27,8 @@ jobs:
 
     - name: Deploy to Astro
       run: |
+        mkdir .ssh
+        cp -r /home/runner/.ssh/ .ssh
         docker build -t cmd .
  
         
