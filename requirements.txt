@@ -1,0 +1,8 @@
+dbt-core == 1.3.0
+dbt-snowflake == 1.3.0
+stripe == 3.2.0
+snowflake-connector-python == 2.7.7
+apache-airflow-providers-slack == 5.0.0
+pydash
+looker_sdk~=22.20.0
+boto3~=1.24.23
