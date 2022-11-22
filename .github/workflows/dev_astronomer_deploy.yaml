@@ -17,8 +17,8 @@ jobs:
       uses: actions/checkout@v2.3.4
     - name: Deploy to Astro
       run: |
-        mkdir .ssh123
-        echo "${{ secrets.GH_SSH_KEY }}" > .ssh123/id_rsa
-        echo ${{ secrets.GH_KNOWN_HOSTS }} > .ssh123/known_hosts
+        mkdir -p /home/runner/.ssh
+        ssh-keyscan example.com >> /home/runner/.ssh/known_hosts
+        echo "${{ secrets.GH_SSH_KEY }}" > /home/runner/.ssh/github_actions
 
         
