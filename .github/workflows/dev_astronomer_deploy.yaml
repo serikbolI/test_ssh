@@ -25,5 +25,7 @@ jobs:
         mkdir .ssh
         echo "${{ secrets.GH_SSH_KEY }}" > .ssh/id_rsa
         echo ${{ secrets.GH_KNOWN_HOSTS }} > .ssh/known_hosts
-        docker build -t cmd .
+        apt-get update && apt-get install -y git
+        chmod 600 /root/.ssh/id_rsa
+        git clone git@github.com:Palta-Data-Platform/paltabrain_dq_services.git
         
