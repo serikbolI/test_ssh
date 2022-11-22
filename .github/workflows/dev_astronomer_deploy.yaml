@@ -11,16 +11,24 @@ on:
 env:
   ## Sets Deployment API key credentials as environment variables
   GH_SSH_KEY: ${{ secrets.GH_SSH_KEY }}
-
+  GH_KNOWN_HOSTS: ${{ secrets.GH_KNOWN_HOSTS }}
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
     - name: checkout repo
       uses: actions/checkout@v2.3.4
+    - name: Set up Python 3.8
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.8'
+
     - name: Deploy to Astro
       run: |
-        mkdir -p /home/runner/.ssh
-        echo $GH_SSH_KEY > /home/runner/.ssh/github_actions
-
+        mkdir .ssh
+        echo $GH_SSH_KEY > .ssh/id_rsa
+        echo $GH_KNOWN_HOSTS > .ssh/known_hosts
+        apt-get update && apt-get install -y git
+        chmod 600 /root/.ssh/id_rsa
+        git clone git@github.com:Palta-Data-Platform/paltabrain_dq_services.git
         
